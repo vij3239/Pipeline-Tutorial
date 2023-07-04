@@ -3,7 +3,7 @@ set -e -u -o pipefail
 
 declare -r SCRIPT_DIR=$(cd -P $(dirname $0) && pwd)
 
-declare -r NAMESPACE=${NAMESPACE:-pipelines-tutorial}
+declare -r NAMESPACE=${NAMESPACE:-vijaya-k-eswari-dev}
 
 _log() {
     local level=$1; shift
@@ -71,7 +71,7 @@ demo.setup-triggers() {
   info "Setup Triggers"
   OC apply -f 03_triggers/01_binding.yaml
   OC apply -f 03_triggers/03_trigger.yaml
-  sed -e "s|pipelines-tutorial|$NAMESPACE|g" 03_triggers/02_template.yaml | OC apply -f -
+  sed -e "s|vijaya-k-eswari-dev|$NAMESPACE|g" 03_triggers/02_template.yaml | OC apply -f -
 
   info "Setup Event Listener"
   OC apply -f 03_triggers/04_event_listener.yaml
